@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rideau Canal Skateway — Live Monitoring</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────────────────── -->
+  <header>
+    <div class="header-inner">
+      <div>
+        <h1>❄️ Rideau Canal Skateway</h1>
+        <p class="subtitle">Real-time Ice Monitoring System</p>
+      </div>
+      <div class="header-right">
+        <div id="system-status" class="system-badge">Loading…</div>
+        <div class="refresh-info">
+          Auto-refresh in <span id="countdown">30</span>s
+          <button id="refresh-btn" onclick="loadAll()">↻ Refresh</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── Location Cards ──────────────────────────────────────────────── -->
+    <section class="cards-section">
+      <h2>Current Conditions</h2>
+      <div class="cards-grid" id="cards-grid">
+        <div class="card skeleton" id="card-dows-lake">
+          <div class="card-header"><span class="location-name">Dow's Lake</span><span class="badge">—</span></div>
+          <div class="metrics"></div>
+          <div class="card-footer"></div>
+        </div>
+        <div class="card skeleton" id="card-fifth-avenue">
+          <div class="card-header"><span class="location-name">Fifth Avenue</span><span class="badge">—</span></div>
+          <div class="metrics"></div>
+          <div class="card-footer"></div>
+        </div>
+        <div class="card skeleton" id="card-nac">
+          <div class="card-header"><span class="location-name">NAC</span><span class="badge">—</span></div>
+          <div class="metrics"></div>
+          <div class="card-footer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Trend Charts ─────────────────────────────────────────────────── -->
+    <section class="charts-section">
+      <h2>Trends — Last Hour</h2>
+      <div class="charts-grid">
+        <div class="chart-box">
+          <h3>Ice Thickness (cm)</h3>
+          <canvas id="chart-ice"></canvas>
+        </div>
+        <div class="chart-box">
+          <h3>Surface Temperature (°C)</h3>
+          <canvas id="chart-temp"></canvas>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>National Capital Commission · CST8916 Final Project · Data updates every 5 minutes via Stream Analytics</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
